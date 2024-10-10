@@ -1,0 +1,9 @@
+server creation using Express js
+
+
+
+
+commands
+go to the project folder
+npm init //intialize your project
+npm i express // install express js
