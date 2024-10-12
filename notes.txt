@@ -7,3 +7,49 @@ commands
 go to the project folder
 npm init //intialize your project
 npm i express // install express js
+
+*******play with this code*********
+app.use(
+  "/",
+  (req, res, next) => {
+    console.log("1st route");
+    // res.send("Hello from dashboard");
+    // res.send("sending another response");
+
+    // next();
+        // res.send("Hello from dashboard");
+
+  },
+  (req, res,next) => {
+    console.log("2nd route");
+    // res.send(" sending 2nd response");
+    //next();
+  }
+);
+
+all the below works same
+app.use("/route",rH,rH1,rH2,rH3,rH4); 
+app.use("/route",[rH,rH1,rH2,rH3,rH4]);
+app.use("/route",[rH,rH1,rH2],rH3,rH4);
+
+
+app.use() will match any URL that starts with the path, but app.all() will only match a URL path that is exactly equal to the specified path.
+what is a middleware, why do we use it?
+ 
+ app.get("/getUserData", (req,res) => {
+    throw new Error("dvbxdfjsd");
+    res.send("User Data sent");
+ });
+
+ app.use("/",(err,req,res,next)=>{
+    if(err)
+    {
+        res.status(500).send("something went wrong");
+    }
+ });
+mongodb+srv://vivek:qzB6tpA4XgTJ5MwR@cluster0.d1y3l.mongodb.net/
+ qZB6tpA4XgTJ5MwR
+ vivek
+ qZB6tpA4XgTJ5MwR
+ qZB6tpA4XgTJ5MwR
+ mongodb+srv://vivek:qZB6tpA4XgTJ5MwR@cluster0.d1y3l.mongodb.net/
