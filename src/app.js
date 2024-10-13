@@ -27,6 +27,30 @@ app.get("/feed", async (req, res) => {
   }
 });
 
+app.patch("/user/:userId", async (req, res) => {
+  const data = req.body;
+  const userId = req.params?.userId;
+
+  const ALLOWED_UPDATES = ["photoUrl", "age", "skills", "about"];
+
+  try {
+    const isUpdateAllowed = Object.keys(data).every((k) =>
+      ALLOWED_UPDATES.includes(k)
+    );
+
+    if (!isUpdateAllowed) {
+      throw new Error("Updating not allowed");
+    }
+    const user = await User.findByIdAndUpdate(userId, data, {
+      runValidators: true,
+    });
+
+    console.log(user);
+    res.send("Update successful");
+  } catch (err) {
+    res.status(400).send("update can't be done" + err.message);
+  }
+});
 connectDB()
   .then(() => {
     console.log("Database connection sucessfull. I have finally fixed it.");
