@@ -53,3 +53,9 @@ mongodb+srv://vivek:qzB6tpA4XgTJ5MwR@cluster0.d1y3l.mongodb.net/
  qZB6tpA4XgTJ5MwR
  qZB6tpA4XgTJ5MwR
  mongodb+srv://vivek:qZB6tpA4XgTJ5MwR@cluster0.d1y3l.mongodb.net/
+ schemas vs model
+ diff b/w js object and json object
+
+ app.use(express.json()) parse the incoming json file and convert it into javaScript object.
+ Even if u send javaScript object, internally first it is converted into json
+ and then sent over the network.
